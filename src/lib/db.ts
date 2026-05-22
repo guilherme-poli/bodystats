@@ -6,7 +6,11 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
 const getDbClient = () => {
   const connectionString = process.env.DATABASE_URL;
-  const pool = new pg.Pool({ connectionString });
+  const isLocal = connectionString?.includes("localhost") || connectionString?.includes("127.0.0.1");
+  const pool = new pg.Pool({
+    connectionString,
+    ssl: isLocal ? undefined : { rejectUnauthorized: false }
+  });
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
 };
