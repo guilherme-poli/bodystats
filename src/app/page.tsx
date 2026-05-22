@@ -66,7 +66,7 @@ export default function Home() {
           <section className="mt-8 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 max-w-2xl leading-tight tracking-tight">
-              BodyStat Pro - Precisão em suas mãos
+              BodyStat Pro
             </h1>
             <p className="text-base md:text-lg text-on-surface-variant max-w-xl mx-auto mb-10 opacity-80 leading-relaxed">
               A ferramenta definitiva para personal trainers e atletas monitorarem a evolução corporal com o protocolo de 7 dobras de Jackson & Pollock.
