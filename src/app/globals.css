@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-fixed: #c3f400;
+  --color-primary-container: #c3f400;
+  --color-on-primary-container: #556d00;
+  --color-surface-container: #1e2113;
+  --color-surface-container-high: #282b1d;
+  --color-surface-container-highest: #333627;
+  --color-on-surface-variant: #c4c9ac;
+  --color-surface: #111508;
+  --color-background: #111508;
+  --color-on-surface: #e2e4cf;
+  --color-primary: #ffffff;
+  --color-secondary: #c4c6ce;
+  --color-error: #ffb4ab;
+}
+
+:root {
+  --background: #111508;
+  --foreground: #e2e4cf;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-glow {
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.3);
+}
+
+.neo-shadow {
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.15);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(171, 214, 0, 0.08) 0%, transparent 70%);
+}
+
+.rim-light {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}

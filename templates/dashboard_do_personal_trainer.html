@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111508;
+            color: #e2e4cf;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(51, 54, 39, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed": "#d2e5f5",
+                "surface": "#111508",
+                "tertiary": "#ffffff",
+                "on-secondary-fixed-variant": "#44474d",
+                "inverse-on-surface": "#2f3223",
+                "inverse-surface": "#e2e4cf",
+                "surface-container-low": "#1a1d10",
+                "surface-dim": "#111508",
+                "surface-variant": "#333627",
+                "on-secondary-fixed": "#191c22",
+                "outline-variant": "#444933",
+                "on-primary-fixed": "#161e00",
+                "error": "#ffb4ab",
+                "surface-bright": "#373b2c",
+                "on-tertiary-container": "#556774",
+                "background": "#111508",
+                "secondary-container": "#464950",
+                "tertiary-fixed-dim": "#b6c9d8",
+                "primary-fixed-dim": "#abd600",
+                "primary-container": "#c3f400",
+                "on-error-container": "#ffdad6",
+                "on-secondary-container": "#b6b8c0",
+                "secondary-fixed-dim": "#c4c6ce",
+                "secondary-fixed": "#e1e2ea",
+                "outline": "#8e9379",
+                "on-primary-fixed-variant": "#3c4d00",
+                "secondary": "#c4c6ce",
+                "surface-container-highest": "#333627",
+                "error-container": "#93000a",
+                "primary-fixed": "#c3f400",
+                "on-background": "#e2e4cf",
+                "surface-container-high": "#282b1d",
+                "on-tertiary-fixed-variant": "#374956",
+                "on-surface": "#e2e4cf",
+                "on-tertiary-fixed": "#0b1d29",
+                "on-primary": "#283500",
+                "inverse-primary": "#506600",
+                "on-primary-container": "#556d00",
+                "surface-container": "#1e2113",
+                "on-tertiary": "#21323e",
+                "primary": "#ffffff",
+                "surface-container-lowest": "#0c0f04",
+                "on-surface-variant": "#c4c9ac",
+                "on-secondary": "#2d3037",
+                "surface-tint": "#abd600",
+                "on-error": "#690005",
+                "tertiary-container": "#d2e5f5"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "container-margin-desktop": "40px",
+                "base": "8px",
+                "container-margin-mobile": "24px",
+                "gutter": "16px",
+                "touch-target-min": "56px"
+            },
+            "fontFamily": {
+                "metric-xl": ["Inter"],
+                "label-caps": ["Inter"],
+                "metric-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                "metric-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                "metric-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 docked full-width top-0 z-40 fixed top-0 left-0 w-full px-container-margin-mobile h-touch-target-min flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-tertiary">search</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">BodyStat Pro</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+<img alt="Coach Profile" data-alt="A professional close-up portrait of a fitness coach in a sleek, high-tech athletic environment. The lighting is dramatic and cinematic, highlighting physical definition with subtle neon green rim lighting. The background features blurred digital telemetry displays in a dark, minimalist gym setting. The overall mood is authoritative, high-performance, and futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYrwFLEnZtzHbeI6BC9Vo6qhVH1uJ6nhY63ND6F2Dxk3zisAXCCzzuU84M1rlUGe4VYbso9Dre0i2wZOgtkVwzLf2mIgVtkDOb97VsokZMvYzhj99Vmo7XBocVi7eoTrjzoRxys2n9zOD2aTzzfhO3c-_NasaMaI86Qok2QLgx4j6dR_5_wLbTptvEkeM4_FtYh31LuMTWVb9MnkPzpO9sv78CV39ByzdRH3JvN1l7K3ZIpTWHwU7eVxbOalnx3zAXN_xRnHSwS1U"/>
+</div>
+</header>
+<main class="pt-24 px-container-margin-mobile max-w-[1200px] mx-auto">
+<!-- Welcome Header -->
+<section class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Olá, Treinador Alex</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Você tem 4 avaliações pendentes para hoje.</p>
+</section>
+<!-- Search Bar -->
+<section class="mb-8">
+<div class="relative">
+<input class="w-full h-touch-target-min bg-[#1A1D23] border border-white/10 rounded-xl px-12 py-4 text-on-surface focus:border-primary-fixed focus:ring-0 transition-all outline-none" placeholder="Buscar clientes..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+</section>
+<!-- Active Clients Bento Grid -->
+<section class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Clientes Ativos</h3>
+<button class="text-primary-fixed font-label-caps text-label-caps">VER TODOS</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Client Card 1 -->
+<div class="glass-card p-6 rounded-xl hover:bg-surface-variant/20 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-headline-lg-mobile text-body-md font-bold mb-1">Marcus Silva</h4>
+<span class="font-label-caps text-[10px] text-on-surface-variant">ÚLTIMA: 12 OUT 2023</span>
+</div>
+<div class="bg-primary-container/20 p-2 rounded-lg text-primary-fixed">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-primary-fixed">14.2</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">% BF</span>
+</div>
+<div class="mt-4 w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full w-[70%]"></div>
+</div>
+</div>
+<!-- Client Card 2 -->
+<div class="glass-card p-6 rounded-xl hover:bg-surface-variant/20 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-headline-lg-mobile text-body-md font-bold mb-1">Beatriz Ramos</h4>
+<span class="font-label-caps text-[10px] text-on-surface-variant">ÚLTIMA: 08 OUT 2023</span>
+</div>
+<div class="bg-error-container/20 p-2 rounded-lg text-error">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-error">22.8</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">% BF</span>
+</div>
+<div class="mt-4 w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[45%]"></div>
+</div>
+</div>
+<!-- Client Card 3 -->
+<div class="glass-card p-6 rounded-xl hover:bg-surface-variant/20 transition-all duration-300 group cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-headline-lg-mobile text-body-md font-bold mb-1">Rodrigo Lima</h4>
+<span class="font-label-caps text-[10px] text-on-surface-variant">ÚLTIMA: 01 OUT 2023</span>
+</div>
+<div class="bg-primary-container/20 p-2 rounded-lg text-primary-fixed">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-lg text-metric-lg text-primary-fixed">18.5</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">% BF</span>
+</div>
+<div class="mt-4 w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-fixed h-full w-[60%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Atividades Recentes -->
+<section class="mb-12">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4">Atividades Recentes</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4 p-4 glass-card rounded-xl">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed">assessment</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Avaliação Bioimpedância</p>
+<p class="text-xs text-on-surface-variant">Marcus Silva • Há 2 horas</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-4 glass-card rounded-xl">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">fitness_center</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Novo Treino de Hipertrofia</p>
+<p class="text-xs text-on-surface-variant">Beatriz Ramos • Há 5 horas</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-4 glass-card rounded-xl opacity-60">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">history</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Meta Alcançada: BF &lt; 15%</p>
+<p class="text-xs text-on-surface-variant">Rodrigo Lima • Ontem</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-white/10 shadow-lg docked full-width bottom-0 rounded-t-xl fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-24">
+<a class="flex flex-col items-center justify-center text-primary-fixed dark:text-primary-fixed font-bold scale-110" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-caps text-label-caps">Clients</span>
+</a>
+<!-- Floating Action Button -->
+<button class="w-16 h-16 bg-[#CCFF00] rounded-full flex items-center justify-center -translate-y-6 shadow-[0_0_20px_rgba(204,255,0,0.5)] active:scale-90 transition-transform duration-150 group">
+<span class="material-symbols-outlined text-black font-bold text-3xl">add</span>
+<div class="absolute -bottom-8 whitespace-nowrap font-label-caps text-[10px] text-primary-fixed font-bold opacity-100 group-hover:scale-110 transition-all">NOVA AVALIAÇÃO</div>
+</button>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-caps text-label-caps">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Side Navigation Drawer (hidden by default) -->
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 rounded-r-xl bg-surface dark:bg-surface border-r border-white/10 shadow-xl -translate-x-full transition-transform duration-300" id="nav-drawer">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container">
+<img alt="Coach Profile" data-alt="A macro close-up of a digital profile interface in a futuristic medical-grade health app. The avatar is crisp, showing a professional coach in modern sportswear. The UI features fine technical data lines and neon accents in the background, creating a high-performance bio-hacking aesthetic with dark mode transparency and high-contrast typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSiDSA4U-mrYukkodXJDNDfCG9TB6ryV6x0SuaaCqfh2_PG65v5toaohqY6chBx6XoSJfco6D1pdgbv5zXiRim_MmVftgc0RY8xWd7jWdw7mSqLtRFSjDEzQwXBfk6mAQzAG5JFUq4H7AArpc_GMcwWIjlGTYzV0pW8mEC8xgfgVPckWMOwj8TdxUEH0aLcHGhDNWZ90dF23K7la86oC__4tLCb9graes0H3ycctLnCnfo1WN_JX-WpC3PEbOkhPSko8oHMZ1jhH4"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface">Coach Alex</h4>
+<p class="text-xs text-on-surface-variant">Clinical Level</p>
+</div>
+</div>
+<nav class="space-y-2 flex-1">
+<a class="flex items-center gap-4 p-3 bg-primary-container text-on-primary-container rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Assessment Guide</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Subscription</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Support</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">v2.4.0</span>
+</div>
+</aside>
+<script>
+        // Simple micro-interactions
+        const searchInput = document.querySelector('input');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('neon-glow');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('neon-glow');
+        });
+
+        // Hover effect for cards
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Relatório de Evolução | BodyStat Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d2e5f5",
+                        "surface": "#111508",
+                        "tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#44474d",
+                        "inverse-on-surface": "#2f3223",
+                        "inverse-surface": "#e2e4cf",
+                        "surface-container-low": "#1a1d10",
+                        "surface-dim": "#111508",
+                        "surface-variant": "#333627",
+                        "on-secondary-fixed": "#191c22",
+                        "outline-variant": "#444933",
+                        "on-primary-fixed": "#161e00",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#373b2c",
+                        "on-tertiary-container": "#556774",
+                        "background": "#111508",
+                        "secondary-container": "#464950",
+                        "tertiary-fixed-dim": "#b6c9d8",
+                        "primary-fixed-dim": "#abd600",
+                        "primary-container": "#c3f400",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#b6b8c0",
+                        "secondary-fixed-dim": "#c4c6ce",
+                        "secondary-fixed": "#e1e2ea",
+                        "outline": "#8e9379",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "secondary": "#c4c6ce",
+                        "surface-container-highest": "#333627",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#c3f400",
+                        "on-background": "#e2e4cf",
+                        "surface-container-high": "#282b1d",
+                        "on-tertiary-fixed-variant": "#374956",
+                        "on-surface": "#e2e4cf",
+                        "on-tertiary-fixed": "#0b1d29",
+                        "on-primary": "#283500",
+                        "inverse-primary": "#506600",
+                        "on-primary-container": "#556d00",
+                        "surface-container": "#1e2113",
+                        "on-tertiary": "#21323e",
+                        "primary": "#ffffff",
+                        "surface-container-lowest": "#0c0f04",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary": "#2d3037",
+                        "surface-tint": "#abd600",
+                        "on-error": "#690005",
+                        "tertiary-container": "#d2e5f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "container-margin-mobile": "24px",
+                        "gutter": "16px",
+                        "touch-target-min": "56px"
+                    },
+                    "fontFamily": {
+                        "metric-xl": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "metric-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "metric-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "metric-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F1115;
+            color: #e2e4cf;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.3);
+        }
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="dark overflow-x-hidden">
+<!-- Header Section -->
+<header class="w-full pt-12 pb-8 px-container-margin-mobile md:px-container-margin-desktop max-w-[1200px] mx-auto">
+<div class="flex flex-col items-start gap-2">
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">Relatório de Evolução</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary font-extrabold tracking-tight">Ricardo Oliveira</h1>
+<div class="h-1 w-24 bg-primary-fixed rounded-full mt-2"></div>
+</div>
+</header>
+<main class="px-container-margin-mobile md:px-container-margin-desktop max-w-[1200px] mx-auto space-y-gutter pb-24">
+<!-- Primary Metrics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Main Highlight Card -->
+<div class="md:col-span-2 glass-card rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-fixed">monitoring</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant">GORDURA CORPORAL ATUAL</p>
+</div>
+<div class="flex items-baseline gap-4">
+<span class="font-metric-lg text-metric-lg md:font-metric-xl md:text-metric-xl text-primary leading-none">14.2%</span>
+<div class="flex items-center text-primary-fixed bg-primary-fixed/10 px-3 py-1 rounded-full border border-primary-fixed/20">
+<span class="material-symbols-outlined text-sm mr-1">arrow_downward</span>
+<span class="font-label-caps text-label-caps">-2.4% vs Março</span>
+</div>
+</div>
+</div>
+<!-- Mini Trend Visualization (Placeholder) -->
+<div class="mt-8 h-32 w-full flex items-end gap-2">
+<div class="w-full bg-surface-container-highest rounded-t-lg chart-bar" style="height: 80%"></div>
+<div class="w-full bg-surface-container-highest rounded-t-lg chart-bar" style="height: 72%"></div>
+<div class="w-full bg-surface-container-highest rounded-t-lg chart-bar" style="height: 65%"></div>
+<div class="w-full bg-primary-fixed rounded-t-lg chart-bar neon-glow" style="height: 54%"></div>
+</div>
+</div>
+<!-- Side Metrics -->
+<div class="space-y-gutter">
+<div class="glass-card rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">PESO ATUAL</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary">84.5 <span class="text-sm font-normal text-on-surface-variant">kg</span></p>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/10 flex items-center justify-center border border-tertiary-fixed/20">
+<span class="material-symbols-outlined text-tertiary-fixed">scale</span>
+</div>
+</div>
+<div class="glass-card rounded-xl p-6 flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">MASSA MAGRA</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary">72.4 <span class="text-sm font-normal text-on-surface-variant">kg</span></p>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed/10 flex items-center justify-center border border-primary-fixed/20">
+<span class="material-symbols-outlined text-primary-fixed">fitness_center</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Charts Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Historical Progress Line -->
+<div class="glass-card rounded-xl p-8">
+<div class="flex justify-between items-start mb-12">
+<h3 class="font-body-md text-body-md font-bold text-primary">Histórico de Composição</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-fixed"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Gordura %</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary-fixed"></div>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Músculo %</span>
+</div>
+</div>
+</div>
+<!-- SVG Chart Mockup -->
+<div class="relative h-48 w-full">
+<svg class="w-full h-full" viewbox="0 0 400 100">
+<!-- Grid Lines -->
+<line stroke="white" stroke-opacity="0.05" x1="0" x2="400" y1="20" y2="20"></line>
+<line stroke="white" stroke-opacity="0.05" x1="0" x2="400" y1="50" y2="50"></line>
+<line stroke="white" stroke-opacity="0.05" x1="0" x2="400" y1="80" y2="80"></line>
+<!-- Primary Data Path -->
+<path d="M0 60 Q 100 40, 200 70 T 400 45" fill="none" stroke="#c3f400" stroke-width="3"></path>
+<!-- Secondary Data Path -->
+<path d="M0 30 Q 100 50, 200 20 T 400 35" fill="none" stroke="#d2e5f5" stroke-dasharray="4" stroke-width="3"></path>
+<!-- Points -->
+<circle cx="0" cy="60" fill="#c3f400" r="4"></circle>
+<circle cx="200" cy="70" fill="#c3f400" r="4"></circle>
+<circle cx="400" cy="45" fill="#c3f400" r="4"></circle>
+</svg>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-on-surface-variant px-1">
+<span>JAN</span>
+<span>MAR</span>
+<span>MAI (HOJE)</span>
+</div>
+</div>
+</div>
+<!-- Comparative Bars -->
+<div class="glass-card rounded-xl p-8 flex flex-col">
+<h3 class="font-body-md text-body-md font-bold text-primary mb-12">Distribuição por Segmento</h3>
+<div class="space-y-6 flex-grow">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Tronco</span>
+<span class="font-body-md text-body-md text-primary">12.8%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 12.8%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Membros Superiores</span>
+<span class="font-body-md text-body-md text-primary">9.4%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 9.4%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Membros Inferiores</span>
+<span class="font-body-md text-body-md text-primary">16.2%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed rounded-full" style="width: 16.2%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skinfold Summary Table -->
+<section class="glass-card rounded-xl overflow-hidden">
+<div class="p-8 border-b border-white/10">
+<h3 class="font-body-md text-body-md font-bold text-primary">Protocolo de 7 Dobras Cutâneas (Pollock)</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-white/5">
+<tr>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Local da Medida</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant">Valor (mm)</th>
+<th class="px-8 py-4 font-label-caps text-label-caps text-on-surface-variant text-right">Comparação</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/10">
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Peitoral</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">8.5</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-1.2mm</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Axilar Média</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">12.0</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-0.8mm</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Tríceps</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">10.2</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-2.5mm</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Subescapular</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">14.5</td>
+<td class="px-8 py-4 text-right text-on-surface-variant text-sm">--</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Abdominal</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">18.2</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-4.1mm</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Suprailíaca</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">13.8</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-1.5mm</td>
+</tr>
+<tr>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">Coxa</td>
+<td class="px-8 py-4 font-body-md text-body-md text-primary">16.0</td>
+<td class="px-8 py-4 text-right text-primary-fixed text-sm">-2.2mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Comparison Photo (Simulated) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative group cursor-pointer overflow-hidden rounded-xl h-96">
+<img alt="Evolução Março" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A side-by-side digital portrait of an athletic male subject during a fitness assessment. The lighting is clinical and professional, utilizing high-contrast shadows to emphasize muscle definition. The setting is a minimalist, high-tech fitness studio with glass panels and neon accents in the background. The mood is disciplined and analytical, reflecting a high-performance health monitoring environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDp3qGkuf17OxszKohj54ZeUobYiJ4YzNWR9cTRpBQzyeuues4Ebs4F7QohephtJgXw54T4BW_38lG6sxnbjqyLUTUiBe406yqfOnkkpNlOG_qpuGW-DeOl_9YCBhNl3PvFjAK6zsARXr_61GRb8g0_CYc_QT0120bLk6-x8E5Up_aPR5IrFXOc_v1QLjpri4dIcNKSSeYGRDxiC1d-CVRIXGlA6F1ZQRnKMNn96iJChwWnJU_yb77KbUVai8WdftdpyFmUNFk48"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-label-caps text-label-caps text-primary-fixed">AVALIAÇÃO ANTERIOR</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Março 2024</p>
+</div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-xl h-96">
+<img alt="Evolução Maio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional full-body shot of a muscular individual in a high-tech athletic setting. The lighting is crisp, accentuating the physical progress and muscle tone. The environment features glass textures and subtle neon green light reflections. The aesthetic is clean, futuristic, and focused on clinical precision and athletic excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABp_OxLZhBjsiyMdLNUKga7NzuKcEX3CIEzBcLxBTMR-cGEBKAHTcErnb7VfqGp-sf5Ij513C3ohYdsNjj-sUUaGvD_e3cTW35d3tqss1BdDMPQHJ8OkKzf9A9H-l_rPB5stYSduwswgUCzJ5_FUQ1H1ohgxs3TYuXN5Nl5DctXrfg29lwUd6cQSU6o-2npCSkJbJMNy9iIyi7yTMKSTmzOo4O-rD1pbyP5p6fj7x6Ub2N8PTM7VqCBxtTSIPaLGE71h7kmdSFXsc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-label-caps text-label-caps text-primary-fixed">RESULTADO ATUAL</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Maio 2024</p>
+</div>
+<div class="absolute top-6 right-6 px-4 py-2 bg-primary-fixed text-on-primary-fixed font-bold rounded-lg text-sm neon-glow">
+                    MAIS DEFINIÇÃO
+                </div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col md:flex-row gap-4 pt-8">
+<button class="w-full md:w-auto px-8 h-touch-target-min bg-primary-fixed text-on-primary-fixed font-bold rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                BAIXAR RELATÓRIO PDF
+            </button>
+<button class="w-full md:w-auto px-8 h-touch-target-min border border-white/30 text-white font-bold rounded-xl transition-all hover:bg-white/5 active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span>
+                COMPARTILHAR LINK
+            </button>
+</div>
+</main>
+<!-- Footer / Logo Section -->
+<footer class="w-full py-16 px-container-margin-mobile border-t border-white/10 mt-12 text-center">
+<div class="max-w-[1200px] mx-auto flex flex-col items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary-fixed rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-lg" style="font-variation-settings: 'FILL' 1;">pulse_alert</span>
+</div>
+<span class="font-bold text-primary text-xl tracking-tighter">BodyStat Pro</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Avaliado por: <span class="text-primary">Personal Lucas Ferreira</span></p>
+<p class="text-[10px] text-on-surface-variant/40 mt-4">© 2024 BodyStat Pro - Clinical Performance Analysis.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach((bar, index) => {
+                setTimeout(() => {
+                    const originalHeight = bar.style.height;
+                    bar.style.height = '0px';
+                    setTimeout(() => {
+                        bar.style.height = originalHeight;
+                    }, 50);
+                }, index * 100);
+            });
+        });
+    </script>
+</body></html>

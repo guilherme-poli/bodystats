@@ -1,0 +1,105 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?   // For credentials login
+  role          String    @default("ALUNO") // "PERSONAL_TRAINER" or "ALUNO"
+  
+  // Relations
+  accounts      Account[]
+  sessions      Session[]
+  
+  // Trainer-Student Hierarchy
+  trainerId     String?
+  trainer       User?     @relation("TrainerStudents", fields: [trainerId], references: [id], onDelete: SetNull)
+  students      User[]    @relation("TrainerStudents")
+
+  // Evaluations
+  evaluationsAsAluno   PhysicalEvaluation[] @relation("AlunoEvaluations")
+  evaluationsAsTrainer PhysicalEvaluation[] @relation("TrainerEvaluations")
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model PhysicalEvaluation {
+  id             String    @id @default(uuid())
+  age            Int
+  gender         String    // "M" or "F"
+  weight         Float
+  height         Float
+  
+  // Skinfolds (mm)
+  triceps        Float
+  subscapular    Float
+  suprailiac     Float
+  abdominal      Float
+  midaxillary    Float
+  chest          Float
+  thigh          Float
+  
+  // Computed values
+  bodyFatPercent Float
+  
+  // Public Sharing
+  isPublic       Boolean   @default(false)
+  publicToken    String?   @unique // UUID token
+  
+  // Anonymous Tracking
+  anonymousToken String?   // Matches cookie or localStorage key for quick evaluations
+
+  // Relations
+  alunoId        String?
+  aluno          User?     @relation("AlunoEvaluations", fields: [alunoId], references: [id], onDelete: Cascade)
+  
+  trainerId      String?
+  trainer        User?     @relation("TrainerEvaluations", fields: [trainerId], references: [id], onDelete: Cascade)
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}

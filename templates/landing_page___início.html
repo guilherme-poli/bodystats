@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-green: #abd600;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111508;
+            color: #e2e4cf;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(171, 214, 0, 0.08) 0%, transparent 70%);
+        }
+        .rim-light {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d2e5f5",
+                      "surface": "#111508",
+                      "tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#44474d",
+                      "inverse-on-surface": "#2f3223",
+                      "inverse-surface": "#e2e4cf",
+                      "surface-container-low": "#1a1d10",
+                      "surface-dim": "#111508",
+                      "surface-variant": "#333627",
+                      "on-secondary-fixed": "#191c22",
+                      "outline-variant": "#444933",
+                      "on-primary-fixed": "#161e00",
+                      "error": "#ffb4ab",
+                      "surface-bright": "#373b2c",
+                      "on-tertiary-container": "#556774",
+                      "background": "#111508",
+                      "secondary-container": "#464950",
+                      "tertiary-fixed-dim": "#b6c9d8",
+                      "primary-fixed-dim": "#abd600",
+                      "primary-container": "#c3f400",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#b6b8c0",
+                      "secondary-fixed-dim": "#c4c6ce",
+                      "secondary-fixed": "#e1e2ea",
+                      "outline": "#8e9379",
+                      "on-primary-fixed-variant": "#3c4d00",
+                      "secondary": "#c4c6ce",
+                      "surface-container-highest": "#333627",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#c3f400",
+                      "on-background": "#e2e4cf",
+                      "surface-container-high": "#282b1d",
+                      "on-tertiary-fixed-variant": "#374956",
+                      "on-surface": "#e2e4cf",
+                      "on-tertiary-fixed": "#0b1d29",
+                      "on-primary": "#283500",
+                      "inverse-primary": "#506600",
+                      "on-primary-container": "#556d00",
+                      "surface-container": "#1e2113",
+                      "on-tertiary": "#21323e",
+                      "primary": "#ffffff",
+                      "surface-container-lowest": "#0c0f04",
+                      "on-surface-variant": "#c4c9ac",
+                      "on-secondary": "#2d3037",
+                      "surface-tint": "#abd600",
+                      "on-error": "#690005",
+                      "tertiary-container": "#d2e5f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin-desktop": "40px",
+                      "base": "8px",
+                      "container-margin-mobile": "24px",
+                      "gutter": "16px",
+                      "touch-target-min": "56px"
+              },
+              "fontFamily": {
+                      "metric-xl": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "metric-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "metric-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                      "metric-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 docked full-width top-0 z-40 flex justify-between items-center w-full px-container-margin-mobile h-touch-target-min fixed">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">BodyStat Pro</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-tertiary w-touch-target-min h-touch-target-min flex items-center justify-center hover:bg-surface-variant/20 transition-all duration-200 active:scale-95" data-icon="search">search</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-white/10">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait of a professional athletic coach with a focused expression. The lighting is dramatic and moody, with cool rim lighting that highlights the contours of the face against a dark, tech-oriented fitness studio background. The overall aesthetic is clean, modern, and high-performance, fitting a clinical fitness monitoring application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHF1nJLMaqOFBnJd4A8BidNVlkBjx-HNsHVrbmF4yFrrA3qBgOp5fvoi-yFj14gwRf13hntQ0gQ9uruP0zJ48nQ1xanPu-Yd-5n42qJCynVRtuZh6a7G9NjyBVQLNges8aFmMC2j4-51xogcVwblukKP0_qHUPQzGjTJ5rDScsidcwbfTEHJmjYy9yGuZneHpVqlrzIozvLsZgQnfTbKfl7DiaTQpwY3LXJuKFDFumyf8dCf0h9adLE2EDkU5r56w24KTVtid-8DM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-container-margin-mobile md:px-container-margin-desktop hero-gradient relative">
+<!-- Abstract Geometry Background Elements -->
+<div class="absolute top-20 right-0 w-96 h-96 bg-primary-fixed/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-40 left-0 w-64 h-64 bg-primary-fixed/5 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="max-w-screen-xl mx-auto flex flex-col items-center text-center">
+<!-- Hero Section -->
+<section class="mt-8 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-card mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">PROTOCOLOS JACKSON &amp; POLLOCK</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-metric-xl md:text-metric-xl text-primary mb-6 max-w-2xl leading-tight">
+                    BodyStat Pro - Precisão em suas mãos
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto mb-10 opacity-80">
+                    A ferramenta definitiva para personal trainers e atletas monitorarem a evolução corporal com o protocolo de Jackson &amp; Pollock.
+                </p>
+<!-- Hero Visual (Bento-like Preview) -->
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-gutter mt-4">
+<div class="md:col-span-2 h-64 rounded-xl glass-card overflow-hidden relative rim-light p-6 flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay" data-alt="A cinematic wide shot of a futuristic, dark-themed high-tech gym with glowing green neon accents and sleek black equipment. The atmosphere is professional and energetic, featuring soft volumetric lighting and a sense of clinical precision. The visual style is minimal and high-performance, reflecting a premium health monitoring dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAMKF5otQ9PQbl109VOnUmdwBgiQtLVZaWv-YTooZ_hkpwCGyjw0BtOfYNI1bWp31r7ARP7aeUYSEo99NoJqMWUCVloXkxl2lagBoExZr21cpDNAlP96p5JYN2Ui7SCl6viuuzOPgShoVUR0EMA3qb3I3Wio7PhpY433sITy88clBWj7Ynmc1LQqDZo8tcyWMca83tUwCPghqnaHmauRqIHThti_NVUz4nB8ojdxvjG3qYbEQDnY-BsabHxF5IzIqpUWUIvEeHtgo"/>
+<div class="relative z-10 text-left">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-2 block">DASHBOARD DE EVOLUÇÃO</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Análise Bioimpedância</h3>
+</div>
+</div>
+<div class="h-64 rounded-xl glass-card rim-light p-6 flex flex-col items-center justify-center gap-4">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary-fixed" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.8" stroke-dashoffset="100" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-metric-lg text-metric-lg text-primary leading-none">12%</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">BF</span>
+</div>
+</div>
+<span class="font-body-md text-body-md text-on-surface text-center">Meta Atingida</span>
+</div>
+</div>
+</section>
+<!-- Action Zone (Bottom 33% priority) -->
+<section class="w-full max-w-md flex flex-col gap-4 mt-8 px-6">
+<button class="bg-primary-container text-on-primary-container h-touch-target-min rounded-xl font-bold font-body-md text-body-md flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 shadow-lg shadow-primary-fixed/20">
+                    Começar Avaliação Rápida
+                    <span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<button class="border border-white/20 text-primary h-touch-target-min rounded-xl font-semibold font-body-md text-body-md flex items-center justify-center gap-2 glass-card transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+                    Login Personal Trainer
+                </button>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary-fixed transition-colors py-4 uppercase tracking-widest text-center" href="#">
+                    Acessar como Aluno
+                </a>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe h-24 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-t border-white/10 rounded-t-xl shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-primary-fixed dark:text-primary-fixed font-bold scale-110 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Clients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Profile</span>
+</a>
+</nav>
+<!-- FAB (Floating Action Button) - Contextual -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-primary-container text-on-primary-container rounded-full shadow-xl flex items-center justify-center active:scale-90 transition-transform duration-150 z-40 md:bottom-10">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<script>
+        // Micro-interaction for button scaling
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Background floating effect
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const blurElements = document.querySelectorAll('.blur-[100px], .blur-[80px]');
+            blurElements.forEach((el, index) => {
+                const speed = (index + 1) * 20;
+                el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

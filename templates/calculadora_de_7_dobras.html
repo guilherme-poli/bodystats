@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neo-shadow {
+            box-shadow: 0 0 20px rgba(204, 255, 0, 0.15);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .active-ring {
+            box-shadow: inset 0 0 0 2px #CCFF00;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d2e5f5",
+                        "surface": "#111508",
+                        "tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#44474d",
+                        "inverse-on-surface": "#2f3223",
+                        "inverse-surface": "#e2e4cf",
+                        "surface-container-low": "#1a1d10",
+                        "surface-dim": "#111508",
+                        "surface-variant": "#333627",
+                        "on-secondary-fixed": "#191c22",
+                        "outline-variant": "#444933",
+                        "on-primary-fixed": "#161e00",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#373b2c",
+                        "on-tertiary-container": "#556774",
+                        "background": "#111508",
+                        "secondary-container": "#464950",
+                        "tertiary-fixed-dim": "#b6c9d8",
+                        "primary-fixed-dim": "#abd600",
+                        "primary-container": "#c3f400",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#b6b8c0",
+                        "secondary-fixed-dim": "#c4c6ce",
+                        "secondary-fixed": "#e1e2ea",
+                        "outline": "#8e9379",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "secondary": "#c4c6ce",
+                        "surface-container-highest": "#333627",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#c3f400",
+                        "on-background": "#e2e4cf",
+                        "surface-container-high": "#282b1d",
+                        "on-tertiary-fixed-variant": "#374956",
+                        "on-surface": "#e2e4cf",
+                        "on-tertiary-fixed": "#0b1d29",
+                        "on-primary": "#283500",
+                        "inverse-primary": "#506600",
+                        "on-primary-container": "#556d00",
+                        "surface-container": "#1e2113",
+                        "on-tertiary": "#21323e",
+                        "primary": "#ffffff",
+                        "surface-container-lowest": "#0c0f04",
+                        "on-surface-variant": "#c4c9ac",
+                        "on-secondary": "#2d3037",
+                        "surface-tint": "#abd600",
+                        "on-error": "#690005",
+                        "tertiary-container": "#d2e5f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin-desktop": "40px",
+                        "base": "8px",
+                        "container-margin-mobile": "24px",
+                        "gutter": "16px",
+                        "touch-target-min": "56px"
+                    },
+                    "fontFamily": {
+                        "metric-xl": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "metric-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "metric-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "metric-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top AppBar (From Shared Components) -->
+<header class="bg-surface/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center w-full px-container-margin-mobile h-touch-target-min fixed top-0 z-40">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant/20 transition-all duration-200 active:scale-95 p-2 rounded-full">
+            arrow_back
+        </button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">BodyStat Pro</h1>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional fitness coach in their 30s with a focused expression, wearing athletic apparel. The background is a high-tech gym with soft neon lighting. The lighting is dramatic and moody, reflecting a premium health tech environment with deep blacks and vibrant neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdMFuSEe1-QbNBkf48WajSYgDKWdI8nsVeaTh6E6yPMDWCpjhYappwLy_bw9CNqq4jDI3WxCKs1HqGA044Lob3Jj5as5vjkHtLd5zH37U9o38I_ygzk4BA6oycxjo3VO98G3EJAAkE_VaPA074HGcdb2uq_Jqx3UirLk8EVjRdM9xpA9XT-2f-VUzQmcQ_vKltQt_SVHySAhV2PKhH5-PGZhP1mR1m9PCw2xpwcOpFbUoUE4U3_FVtInEMxY60z1q3BIaffU0UYfo"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-20 pb-40 px-container-margin-mobile max-w-lg mx-auto">
+<!-- Sticky Result Bar -->
+<div class="fixed top-20 left-0 right-0 z-30 px-container-margin-mobile pointer-events-none">
+<div class="glass-card rounded-xl p-4 flex justify-between items-center neo-shadow border-primary/20 pointer-events-auto">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Estimativa</p>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary-fixed font-bold leading-none">% Gordura</p>
+</div>
+<div class="text-right">
+<span class="font-metric-lg text-metric-lg text-primary-fixed" id="fat-percentage">14.5%</span>
+</div>
+</div>
+</div>
+<section class="mt-28 space-y-8">
+<!-- Basic Metrics -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase px-2">Idade</label>
+<div class="bg-surface-container-high rounded-xl h-14 flex items-center px-4 border border-white/5">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md text-primary" placeholder="0" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase px-2">Sexo</label>
+<div class="flex bg-surface-container-high rounded-xl h-14 p-1 border border-white/5">
+<button class="flex-1 rounded-lg font-label-caps text-label-caps bg-primary-container text-on-primary-container transition-all" onclick="toggleGender(this)">M</button>
+<button class="flex-1 rounded-lg font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant/20 transition-all" onclick="toggleGender(this)">F</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase px-2">Peso (kg)</label>
+<div class="bg-surface-container-high rounded-xl h-14 flex items-center px-4 border border-white/5">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md text-primary" placeholder="0.0" step="0.1" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase px-2">Altura (cm)</label>
+<div class="bg-surface-container-high rounded-xl h-14 flex items-center px-4 border border-white/5">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md text-primary" placeholder="0" type="number"/>
+</div>
+</div>
+</div>
+<!-- Skinfolds Divider -->
+<div class="flex items-center gap-4 py-4">
+<div class="h-px bg-white/10 flex-1"></div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Dobras Cutâneas (mm)</h3>
+<div class="h-px bg-white/10 flex-1"></div>
+</div>
+<!-- Skinfolds Sequence -->
+<div class="space-y-6">
+<!-- Tríceps -->
+<div class="skinfold-input-group" data-label="Tríceps">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Tríceps</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative overflow-hidden group focus-within:ring-1 focus-within:ring-primary-container">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed appearance-none" type="number" value="12.5"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Subescapular -->
+<div class="skinfold-input-group" data-label="Subescapular">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Subescapular</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="10.0"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Supra-ilíaca -->
+<div class="skinfold-input-group" data-label="Supra-ilíaca">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Supra-ilíaca</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="15.2"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Abdominal -->
+<div class="skinfold-input-group" data-label="Abdominal">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Abdominal</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="18.0"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Axilar Média -->
+<div class="skinfold-input-group" data-label="Axilar Média">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Axilar Média</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="11.4"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Peitoral -->
+<div class="skinfold-input-group" data-label="Peitoral">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Peitoral</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="9.8"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Coxa -->
+<div class="skinfold-input-group" data-label="Coxa">
+<div class="flex justify-between items-center mb-2 px-2">
+<label class="font-body-md text-body-md font-semibold text-primary">Coxa</label>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mm</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, -1)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 h-16 glass-card rounded-xl flex items-center justify-center relative">
+<input class="bg-transparent border-none focus:ring-0 text-center font-metric-lg text-metric-lg w-full text-primary-fixed" type="number" value="14.1"/>
+</div>
+<button class="w-16 h-16 rounded-xl glass-card flex items-center justify-center text-primary active:scale-90 transition-transform duration-100" onclick="adjustValue(this, 1)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Actions & Navigation Suppression -->
+<!-- Note: BottomNavBar suppressed per "Task-Focused" rule for Assessment Screens -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-surface via-surface/90 to-transparent z-40">
+<button class="w-full h-14 bg-primary-container text-on-primary-container rounded-2xl font-body-md font-bold text-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all neo-shadow">
+            Finalizar Avaliação
+            <span class="material-symbols-outlined">done_all</span>
+</button>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        function adjustValue(btn, delta) {
+            const input = btn.parentElement.querySelector('input');
+            let val = parseFloat(input.value) || 0;
+            val = Math.max(0, val + delta);
+            input.value = val.toFixed(1);
+            
+            // Visual feedback for change
+            const display = document.getElementById('fat-percentage');
+            // Simplified logic to "react" to changes visually
+            const currentFat = parseFloat(display.innerText);
+            const newFat = currentFat + (delta * 0.1);
+            display.innerText = newFat.toFixed(1) + '%';
+            
+            // Impact pulse effect
+            display.classList.remove('animate-pulse-subtle');
+            void display.offsetWidth; // Trigger reflow
+            display.classList.add('animate-pulse-subtle');
+        }
+
+        function toggleGender(btn) {
+            const container = btn.parentElement;
+            const buttons = container.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.classList.remove('bg-primary-container', 'text-on-primary-container');
+                b.classList.add('text-on-surface-variant', 'hover:bg-surface-variant/20');
+            });
+            btn.classList.add('bg-primary-container', 'text-on-primary-container');
+            btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-variant/20');
+        }
+
+        // Haptic feedback simulation for mobile
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                if (window.navigator && window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+            });
+        });
+
+        // Monitor inputs for real-time updates
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                const display = document.getElementById('fat-percentage');
+                // Simulate calculation logic
+                const mockFat = (12 + Math.random() * 5).toFixed(1);
+                display.innerText = mockFat + '%';
+            });
+        });
+    </script>
+</body></html>
