@@ -75,7 +75,12 @@ export default function Home() {
             {/* Hero Visual (Bento-like Preview) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 max-w-3xl">
               <div className="md:col-span-3 h-48 rounded-xl glass-card overflow-hidden relative rim-light p-6 flex flex-col justify-end text-left group hover:border-primary-fixed/30 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                <img
+                  src="/fitness_woman_workout.png"
+                  alt="Fitness Workout"
+                  className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
                 <div className="relative z-20">
                   <span className="text-[10px] font-bold text-primary-fixed mb-1 block uppercase tracking-widest">
                     DASHBOARD DE EVOLUÇÃO
