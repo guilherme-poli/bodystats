@@ -54,7 +54,11 @@ export async function GET(request: Request) {
   } catch (error: any) {
     console.error("Erro ao carregar avaliações:", error);
     return NextResponse.json(
-      { error: "Erro interno do servidor." },
+      { 
+        error: "Erro interno do servidor.",
+        details: error.message || String(error),
+        stack: error.stack
+      },
       { status: 500 }
     );
   }
@@ -159,7 +163,11 @@ export async function POST(request: Request) {
   } catch (error: any) {
     console.error("Erro ao registrar avaliação:", error);
     return NextResponse.json(
-      { error: "Erro interno do servidor." },
+      { 
+        error: "Erro interno do servidor.",
+        details: error.message || String(error),
+        stack: error.stack
+      },
       { status: 500 }
     );
   }
