@@ -64,12 +64,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           {/* Hero Section */}
           <section className="mt-8 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-card mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
-              <span className="text-xs font-semibold tracking-wider text-on-surface-variant uppercase">
-                Protocolo Jackson & Pollock
-              </span>
-            </div>
+
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 max-w-2xl leading-tight tracking-tight">
               BodyStat Pro - Precisão em suas mãos
             </h1>
@@ -79,7 +74,7 @@ export default function Home() {
 
             {/* Hero Visual (Bento-like Preview) */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-4 max-w-3xl">
-              <div className="md:col-span-2 h-48 rounded-xl glass-card overflow-hidden relative rim-light p-6 flex flex-col justify-end text-left group hover:border-primary-fixed/30 transition-all duration-300">
+              <div className="md:col-span-3 h-48 rounded-xl glass-card overflow-hidden relative rim-light p-6 flex flex-col justify-end text-left group hover:border-primary-fixed/30 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
                 <div className="relative z-20">
                   <span className="text-[10px] font-bold text-primary-fixed mb-1 block uppercase tracking-widest">
@@ -87,37 +82,6 @@ export default function Home() {
                   </span>
                   <h3 className="text-xl font-bold text-white">Análise de Composição Corporal</h3>
                 </div>
-              </div>
-              <div className="h-48 rounded-xl glass-card rim-light p-6 flex flex-col items-center justify-center gap-3 hover:border-primary-fixed/30 transition-all duration-300">
-                <div className="relative w-24 h-24">
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle
-                      className="text-surface-container-high"
-                      cx="48"
-                      cy="48"
-                      fill="transparent"
-                      r="40"
-                      stroke="rgba(255,255,255,0.05)"
-                      strokeWidth="6"
-                    ></circle>
-                    <circle
-                      className="text-primary-fixed"
-                      cx="48"
-                      cy="48"
-                      fill="transparent"
-                      r="40"
-                      stroke="#c3f400"
-                      strokeDasharray="251.2"
-                      strokeDashoffset="75.3"
-                      strokeWidth="6"
-                    ></circle>
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-lg font-bold text-white leading-none">14.2%</span>
-                    <span className="text-[9px] text-on-surface-variant font-semibold">BF</span>
-                  </div>
-                </div>
-                <span className="text-xs text-[#e2e4cf] text-center font-medium">Zona Ótima</span>
               </div>
             </div>
           </section>
